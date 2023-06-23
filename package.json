@@ -2,17 +2,18 @@
   "name": "design-tokens",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build-transform-global": "npx token-transformer tokens.json styles/tokens/global.json global",
     "build-transform-light": "npx token-transformer tokens.json styles/tokens/light.json global,light,theme --resolveReferences=false",
     "build-transform-dark": "npx token-transformer tokens.json styles/tokens/dark.json global,dark,theme  --resolveReferences=false",
-    "build-transform": "npm run build-transform-global && npm run build-transform-light && npm run build-transform-dark",
+    "build-transform-all": "npx token-transformer tokens.json styles/tokens/all.json global,dark,theme",
+    "build-transform": "npm run build-transform-global && npm run build-transform-light && npm run build-transform-dark && npm run build-transform-all",
     "build-styles": "npm run build-transform && node style-token.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@microsoft/fast-foundation": "^3.0.0-alpha.28",
     "style-dictionary": "^3.8.0",
     "token-transformer": "^0.0.33"
   }
